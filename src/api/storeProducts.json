@@ -1,0 +1,296 @@
+{
+  "products": {
+    "iap": [],
+    "items": [
+      {
+        "sku": "com.intermedia.hq.item.extralife.free",
+        "name": "Free Extra Life",
+        "coinPrice": 0,
+        "iconUrl": "https://cdn.canobal.com/hqtv/static/store/products/el-1.png",
+        "awards": [
+          {
+            "itemType": "extra-life",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "sku": "com.intermedia.hq.item.extralife.1x",
+        "name": "Extra Lives",
+        "coinPrice": 400,
+        "iconUrl": "https://cdn.canobal.com/hqtv/static/store/products/el-1.png",
+        "awards": [
+          {
+            "itemType": "extra-life",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "sku": "com.intermedia.hq.item.extralife.3x",
+        "name": "3 Extra Lives",
+        "coinPrice": 1000,
+        "iconUrl": "https://cdn.canobal.com/hqtv/static/store/products/el-3.png",
+        "awards": [
+          {
+            "itemType": "extra-life",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "sku": "com.intermedia.hq.item.extralife.5x",
+        "name": "5 Extra Lives",
+        "coinPrice": 1500,
+        "iconUrl": "https://cdn.canobal.com/hqtv/static/store/products/el-5.png",
+        "awards": [
+          {
+            "itemType": "extra-life",
+            "quantity": 5
+          }
+        ]
+      },
+      {
+        "sku": "com.intermedia.hq.item.erasers.1x",
+        "name": "1 Eraser",
+        "coinPrice": 100,
+        "iconUrl": "https://cdn.canobal.com/hqtv/static/store/products/eraser-1.png",
+        "awards": [
+          {
+            "itemType": "eraser",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "sku": "com.intermedia.hq.item.erasers.3x",
+        "name": "3 Erasers",
+        "coinPrice": 250,
+        "iconUrl": "https://cdn.canobal.com/hqtv/static/store/products/eraser-3.png",
+        "awards": [
+          {
+            "itemType": "eraser",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "sku": "com.intermedia.hq.item.erasers.5x",
+        "name": "5 Erasers",
+        "coinPrice": 400,
+        "iconUrl": "https://cdn.canobal.com/hqtv/static/store/products/eraser-5.png",
+        "awards": [
+          {
+            "itemType": "eraser",
+            "quantity": 5
+          }
+        ]
+      },
+      {
+        "sku": "com.intermedia.hq.item.superspin.1x",
+        "name": "1 Super Spin",
+        "coinPrice": 150,
+        "iconUrl": "https://cdn.canobal.com/hqtv/static/store/products/spin-1.png",
+        "awards": [
+          {
+            "itemType": "super-spin",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "sku": "com.intermedia.hq.item.superspin.3x",
+        "name": "3 Super Spins",
+        "coinPrice": 400,
+        "iconUrl": "https://cdn.canobal.com/hqtv/static/store/products/spin-3.png",
+        "awards": [
+          {
+            "itemType": "super-spin",
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "sku": "com.intermedia.hq.item.superspin.5x",
+        "name": "5 Super Spins",
+        "coinPrice": 600,
+        "iconUrl": "https://cdn.canobal.com/hqtv/static/store/products/spin-5.png",
+        "awards": [
+          {
+            "itemType": "super-spin",
+            "quantity": 5
+          }
+        ]
+      }
+    ]
+  },
+  "itemTypes": {
+    "sharer": {
+      "nameSingular": "Coming Soon",
+      "namePlural": "Coming Soons",
+      "iconUrl": "https://cdn.canobal.com/hqtv/static/store/items/extralife@3x.png"
+    },
+    "extra-life": {
+      "nameSingular": "Extra Life",
+      "namePlural": "Extra Lives",
+      "iconUrl": "https://cdn.canobal.com/hqtv/static/store/items/extralife@3x.png"
+    },
+    "eraser": {
+      "nameSingular": "Eraser",
+      "namePlural": "Erasers",
+      "iconUrl": "https://cdn.canobal.com/hqtv/static/store/items/eraser@3x.png"
+    },
+    "super-spin": {
+      "nameSingular": "Super Spin",
+      "namePlural": "Super Spins",
+      "iconUrl": "https://cdn.canobal.com/hqtv/static/store/items/spin@3x.png"
+    }
+  },
+  "groupedPlacements": {
+    "storefront": [
+      {
+        "name": "Extra Lives",
+        "description": "Wrong answer? Continue playing with an extra life.",
+        "ctaText": "",
+        "ctaUrl": "tiktok://d",
+        "itemType": "extra-life",
+        "products": [
+          {
+            "sku": "com.intermedia.hq.item.extralife.1x",
+            "backgroundColor": "#ECEBF0",
+            "highlighted": false,
+            "accentColor": null,
+            "label": null
+          },
+          {
+            "sku": "com.intermedia.hq.item.extralife.3x",
+            "backgroundColor": "#ECEBF0",
+            "highlighted": false,
+            "accentColor": null,
+            "label": null
+          },
+          {
+            "sku": "com.intermedia.hq.item.extralife.5x",
+            "backgroundColor": "#ECEBF0",
+            "highlighted": false,
+            "accentColor": null,
+            "label": null
+          }
+        ]
+      },
+      {
+        "name": "Erasers",
+        "description": "Use an Eraser to eliminate one wrong answer during a question.",
+        "itemType": "eraser",
+        "ctaText": "",
+        "ctaUrl": "tiktok://d",
+        "products": [
+          {
+            "sku": "com.intermedia.hq.item.erasers.1x",
+            "backgroundColor": "#ECEBF0",
+            "highlighted": false,
+            "accentColor": null,
+            "label": null
+          },
+          {
+            "sku": "com.intermedia.hq.item.erasers.3x",
+            "backgroundColor": "#ECEBF0",
+            "highlighted": false,
+            "accentColor": null,
+            "label": null
+          },
+          {
+            "sku": "com.intermedia.hq.item.erasers.5x",
+            "backgroundColor": "#ECEBF0",
+            "highlighted": false,
+            "accentColor": null,
+            "label": null
+          }
+        ]
+      },
+      {
+        "name": "Super Spin",
+        "description": "Use a Super Spin to get more letters and special Power Ups in HQTV Words.",
+        "itemType": "super-spin",
+        "ctaText": "",
+        "ctaUrl": "tiktok://d",
+        "products": [
+          {
+            "sku": "com.intermedia.hq.item.superspin.1x",
+            "backgroundColor": "#ECEBF0",
+            "highlighted": false,
+            "accentColor": null,
+            "label": null
+          },
+          {
+            "sku": "com.intermedia.hq.item.superspin.3x",
+            "backgroundColor": "#ECEBF0",
+            "highlighted": false,
+            "accentColor": null,
+            "label": null
+          },
+          {
+            "sku": "com.intermedia.hq.item.superspin.5x",
+            "backgroundColor": "#ECEBF0",
+            "highlighted": false,
+            "accentColor": null,
+            "label": null
+          }
+        ]
+      }
+    ],
+    "buyBackInItem": [],
+    "buyBackInBundle": []
+  },
+  "placements": {
+    "triviaIngame": [
+      {
+        "sku": "com.intermedia.hq.item.extralife.1x",
+        "backgroundColor": "#ECEBF0",
+        "highlighted": false,
+        "accentColor": null,
+        "label": null
+      },
+      {
+        "sku": "com.intermedia.hq.item.extralife.3x",
+        "backgroundColor": "#ECEBF0",
+        "highlighted": false,
+        "accentColor": null,
+        "label": null
+      },
+      {
+        "sku": "com.intermedia.hq.item.extralife.5x",
+        "backgroundColor": "#ECEBF0",
+        "highlighted": false,
+        "accentColor": null,
+        "label": null
+      },
+      {
+        "sku": "com.intermedia.hq.item.erasers.1x",
+        "backgroundColor": "#ECEBF0",
+        "highlighted": false,
+        "accentColor": null,
+        "label": null
+      },
+      {
+        "sku": "com.intermedia.hq.item.erasers.3x",
+        "backgroundColor": "#ECEBF0",
+        "highlighted": false,
+        "accentColor": null,
+        "label": null
+      },
+      {
+        "sku": "com.intermedia.hq.item.erasers.5x",
+        "backgroundColor": "#ECEBF0",
+        "highlighted": false,
+        "accentColor": null,
+        "label": null
+      }
+    ],
+    "needCoins": [],
+    "offairTriviaBundles": [],
+    "offairTriviaItems": [],
+    "endGameMultipliers": [],
+    "heartIngame": []
+  }
+}
