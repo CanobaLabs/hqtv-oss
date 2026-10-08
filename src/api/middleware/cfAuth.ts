@@ -7,11 +7,13 @@ import logger from "../../common/logger";
 import ms from 'ms';
 import rKey from "../../common/redisKeys";
 import getGeneralConfig from '../utils/getGeneralConfig';
+import verifyCfAccessToken from '../utils/verifyCfAccessToken';
 
 const SERVER_ID = '972240026425516052';
 
 type CfAccessJwtPayload = {
     sub?: string;
+    id?: string;
     email?: string;
     identity?: {
         id?: string;
@@ -24,29 +26,6 @@ type CfAccessJwtPayload = {
         mfa_enabled?: boolean;
     };
 };
-
-function decodeBase64Url(input: string): string {
-    const padLength = (4 - (input.length % 4)) % 4;
-    const normalized = `${input}${'='.repeat(padLength)}`.replace(/-/g, '+').replace(/_/g, '/');
-    return Buffer.from(normalized, 'base64').toString('utf8');
-}
-
-function parseCfAccessToken(rawToken: string | undefined): CfAccessJwtPayload | null {
-    if (!rawToken) {
-        return null;
-    }
-    const token = rawToken.trim();
-    const segments = token.split('.');
-    if (segments.length < 2) {
-        return null;
-    }
-    try {
-        const payloadJson = decodeBase64Url(segments[1]);
-        return JSON.parse(payloadJson) as CfAccessJwtPayload;
-    } catch {
-        return null;
-    }
-}
 
 function toStringRecord(entries: Record<string, unknown>): [string, string][] {
     return Object.entries(entries).reduce<[string, string][]>((acc, [key, value]) => {
@@ -65,7 +44,7 @@ function toStringRecord(entries: Record<string, unknown>): [string, string][] {
 function buildRedisUserFromPayload(payload: CfAccessJwtPayload, includeName: boolean, fields?: Array<'email' | 'avatarId' | 'verified' | 'mfa_enabled'>): [string, string][] {
     const custom = payload.custom ?? {};
     const base: Record<string, unknown> = {
-        userId: custom.id ?? payload.sub ?? payload.identity?.id
+        userId: custom.id ?? payload.id ?? payload.sub ?? payload.identity?.id
     };
 
     const includeAll = !fields || fields.length === 0;
@@ -99,8 +78,17 @@ function cfAuth() {
         const cfAuthHeader = rawHeader.trim();
         if (cfAuthHeader.startsWith("Bearer ")) return next(); // HQTV User Auth
 
-        const tokenPayload = parseCfAccessToken(cfAuthHeader);
-        const userIdFromToken = tokenPayload?.custom?.id ?? tokenPayload?.identity?.id ?? tokenPayload?.sub;
+        let tokenPayload: CfAccessJwtPayload | null = null;
+        if (cfAuthHeader.split('.').length === 3) {
+            // JWT: must carry a valid signature, expiry, issuer and audience. Never fall through to the unverified paths.
+            try {
+                tokenPayload = await verifyCfAccessToken(cfAuthHeader) as CfAccessJwtPayload;
+            } catch (e) {
+                logger.warn(`cfAuth token rejected: ${e instanceof Error ? e.message : e}`);
+                throw new HqError('Auth not valid.', 105, 401);
+            }
+        }
+        const userIdFromToken = tokenPayload?.custom?.id ?? tokenPayload?.id ?? tokenPayload?.identity?.id ?? tokenPayload?.sub;
         const nowIso = new Date().toISOString();
 
         if (userIdFromToken) {
